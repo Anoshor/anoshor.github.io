@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="tokyo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anoshor B. Paul — Software Engineer</title>
+<meta name="description" content="Software engineer at RingCentral building enterprise agentic AI platforms. Backend microservices, MCP integrations, developer SDKs.">
+<meta property="og:title" content="Anoshor B. Paul — Software Engineer">
+<meta property="og:description" content="Building enterprise agentic AI platforms. Backend microservices, MCP, developer SDKs.">
+<meta property="og:url" content="https://anoshor.com">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Old+Mincho:wght@600;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>
+/* island 0: theme boot — runs before paint to avoid flash */
+(function(){try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+</script>
+<style>
+/* ============ base ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --font-body:'Zen Kaku Gothic New',system-ui,sans-serif;
+  --font-head:'Zen Kaku Gothic New',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --radius:14px;
+  --border-w:1px;
+  --shadow:none;
+  --card-shadow:0 2px 16px rgba(0,0,0,.18);
+}
+/* ============ themes ============ */
+:root[data-theme="tokyo"]{
+  --bg:#0e1120; --bg2:#151930; --card:#181d36; --border:#272e52;
+  --text:#e9ebfa; --muted:#9aa3c7; --accent:#ff5c8a; --accent2:#5ce1e6;
+  --chip:#20264a; --glow:0 0 22px rgba(255,92,138,.35);
+  --heroline:linear-gradient(90deg,#ff5c8a,#5ce1e6);
+}
+:root[data-theme="ghibli"]{
+  --bg:#f6f1e4; --bg2:#efe8d6; --card:#fbf7ec; --border:#ddd2b8;
+  --text:#4a4133; --muted:#8b7f68; --accent:#6f9a3d; --accent2:#d97e4a;
+  --chip:#eee6d2; --glow:none; --card-shadow:0 3px 14px rgba(120,100,60,.12);
+  --heroline:linear-gradient(90deg,#6f9a3d,#d97e4a);
+}
+:root[data-theme="sakura"]{
+  --bg:#fbf8f5; --bg2:#f5f0ea; --card:#ffffff; --border:#e8e0d8;
+  --text:#191714; --muted:#77706a; --accent:#d94f6e; --accent2:#b03a55;
+  --chip:#f4ece6; --glow:none; --card-shadow:0 3px 14px rgba(60,40,40,.08);
+  --font-head:'Zen Old Mincho',serif;
+  --heroline:linear-gradient(90deg,#d94f6e,#e8929f);
+}
+:root[data-theme="manga"]{
+  --bg:#ffffff; --bg2:#f2f2f2; --card:#ffffff; --border:#111111;
+  --text:#111111; --muted:#555555; --accent:#111111; --accent2:#111111;
+  --chip:#f2f2f2; --glow:none; --border-w:2.5px; --radius:4px;
+  --card-shadow:5px 5px 0 #111;
+  --heroline:linear-gradient(90deg,#111,#111);
+}
+/* ============ layout ============ */
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body); background:var(--bg); color:var(--text);
+  line-height:1.7; transition:background .35s,color .35s;
+  -webkit-font-smoothing:antialiased;
+}
+#petals{position:fixed;inset:0;z-index:0;pointer-events:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+section{padding:64px 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+/* ============ nav ============ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:10;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  background:color-mix(in srgb,var(--bg) 78%,transparent);
+  border-bottom:var(--border-w) solid var(--border);
+}
+.navin{max-width:860px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--font-head);font-weight:900;font-size:1.15rem;color:var(--text);letter-spacing:.02em}
+.logo:hover{text-decoration:none}
+.logo .kana{color:var(--accent);margin-right:6px}
+.themes{display:flex;gap:8px}
+.tbtn{
+  width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:15px;
+  display:flex;align-items:center;justify-content:center;
+  border:var(--border-w) solid var(--border);background:var(--card);
+  transition:transform .15s,border-color .2s; line-height:1;
+}
+.tbtn:hover{transform:translateY(-2px) scale(1.08)}
+.tbtn.active{border-color:var(--accent);box-shadow:var(--glow)}
+/* ============ hero ============ */
+.hero{padding:150px 0 70px;min-height:78vh;display:flex;flex-direction:column;justify-content:center}
+.hello{font-size:1rem;color:var(--accent);font-weight:700;letter-spacing:.08em;margin-bottom:10px}
+h1{font-family:var(--font-head);font-size:clamp(2.4rem,7vw,4.2rem);font-weight:900;line-height:1.12;letter-spacing:-.01em}
+h1 .grad{background:var(--heroline);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+:root[data-theme="manga"] h1 .grad{-webkit-text-fill-color:var(--text);text-decoration:underline;text-decoration-thickness:6px;text-underline-offset:8px}
+.tagline{font-family:var(--font-mono);font-size:clamp(.95rem,2.6vw,1.15rem);color:var(--muted);margin-top:18px;min-height:1.8em}
+.tagline .cursor{display:inline-block;width:.55em;animation:blink 1s steps(1) infinite;color:var(--accent)}
+@keyframes blink{50%{opacity:0}}
+.links{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.pill{
+  padding:9px 18px;border-radius:100px;font-weight:700;font-size:.92rem;
+  border:var(--border-w) solid var(--border);background:var(--card);color:var(--text);
+  transition:transform .15s,border-color .2s;box-shadow:var(--card-shadow);
+}
+.pill:hover{transform:translateY(-2px);border-color:var(--accent);text-decoration:none}
+.pill.primary{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+:root[data-theme="manga"] .pill.primary{color:#fff}
+/* ============ sections ============ */
+h2{font-family:var(--font-head);font-size:1.7rem;font-weight:900;margin-bottom:28px;display:flex;align-items:baseline;gap:12px}
+h2 .jp{font-size:.85rem;color:var(--accent);font-weight:700;letter-spacing:.15em}
+h2::after{content:"";flex:1;height:var(--border-w);background:var(--border);margin-left:6px;align-self:center}
+.card{
+  background:var(--card);border:var(--border-w) solid var(--border);
+  border-radius:var(--radius);padding:24px 26px;margin-bottom:18px;
+  box-shadow:var(--card-shadow);transition:transform .18s,border-color .2s,background .35s;
+}
+.card:hover{transform:translateY(-3px);border-color:var(--accent)}
+.rolehead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.role{font-weight:900;font-size:1.08rem}
+.role .at{color:var(--accent);font-weight:700}
+.dates{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);white-space:nowrap}
+.where{color:var(--muted);font-size:.88rem;margin-top:2px}
+.card ul{margin:12px 0 0 18px}
+.card li{margin-bottom:7px;font-size:.95rem}
+.card li::marker{color:var(--accent)}
+/* projects grid */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.proj{display:flex;flex-direction:column;margin-bottom:0}
+.proj h3{font-family:var(--font-head);font-weight:900;font-size:1.05rem;margin-bottom:4px}
+.proj .sub{font-family:var(--font-mono);font-size:.74rem;color:var(--accent);margin-bottom:10px;letter-spacing:.03em}
+.proj p{font-size:.92rem;color:var(--muted);flex:1}
+.proj .plink{margin-top:14px;font-weight:700;font-size:.88rem}
+/* skills */
+.sgroup{margin-bottom:18px}
+.sgroup .slabel{font-weight:900;font-size:.92rem;margin-bottom:10px;color:var(--text)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  font-family:var(--font-mono);font-size:.78rem;padding:6px 13px;border-radius:100px;
+  background:var(--chip);border:var(--border-w) solid var(--border);color:var(--text);
+  transition:border-color .2s,transform .15s;
+}
+.chip:hover{border-color:var(--accent);transform:translateY(-1px)}
+/* contact */
+.contact{text-align:center;padding:80px 0 90px}
+.contact h2{justify-content:center}
+.contact h2::after{display:none}
+.contact p{color:var(--muted);max-width:480px;margin:0 auto 28px}
+/* footer */
+footer{border-top:var(--border-w) solid var(--border);padding:26px 0;text-align:center;color:var(--muted);font-size:.82rem;position:relative;z-index:1}
+footer .kana{color:var(--accent)}
+/* reveal island */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  #petals{display:none}
+  .tagline .cursor{animation:none}
+}
+</style>
+</head>
+<body>
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<nav>
+  <div class="navin">
+    <a class="logo" href="#top"><span class="kana">あ</span>anoshor</a>
+    <div class="themes" role="group" aria-label="Theme">
+      <button class="tbtn" data-set="tokyo"  title="Tokyo Night"    aria-label="Tokyo Night theme">🌃</button>
+      <button class="tbtn" data-set="ghibli" title="Ghibli Soft"    aria-label="Ghibli Soft theme">🌿</button>
+      <button class="tbtn" data-set="sakura" title="Sakura Ink"     aria-label="Sakura Ink theme">🌸</button>
+      <button class="tbtn" data-set="manga"  title="Monochrome Manga" aria-label="Monochrome Manga theme">⚫</button>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <header class="hero">
+    <div class="hello">こんにちは、I'm</div>
+    <h1>Anoshor B. Paul<br><span class="grad">Software Engineer</span></h1>
+    <p class="tagline"><span id="type"></span><span class="cursor">▌</span></p>
+    <div class="links">
+      <a class="pill primary" href="mailto:anoshorpaul@gmail.com">Say hello</a>
+      <a class="pill" href="https://github.com/Anoshor" target="_blank" rel="noopener">GitHub</a>
+      <a class="pill" href="https://www.linkedin.com/in/anoshor/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="pill" href="https://leetcode.com/u/Anoshor" target="_blank" rel="noopener">LeetCode</a>
+    </div>
+  </header>
+
+  <section id="about" class="rv">
+    <h2><span class="jp">自己紹介</span>About</h2>
+    <p>
+      I build the plumbing that makes AI agents actually useful. At <strong>RingCentral</strong> I work on an
+      enterprise agentic AI assistant platform — backend microservices, <strong>Model Context Protocol (MCP)</strong>
+      integrations, and developer SDKs that let AI agents discover, configure, and execute enterprise skills.
+    </p>
+    <p style="margin-top:12px">
+      Off the clock I ship terminal games, sell backends, and grind LeetCode
+      (<strong>2175 · top 2%</strong>). Minimalism and Japanese aesthetics are the through-line —
+      you may have noticed the theme switcher.
+    </p>
+  </section>
+
+  <section id="experience" class="rv">
+    <h2><span class="jp">経歴</span>Experience</h2>
+
+    <div class="card">
+      <div class="rolehead">
+        <div class="role">Software Development Engineer I <span class="at">@ RingCentral</span></div>
+        <div class="dates">Aug 2025 — now</div>
+      </div>
+      <div class="where">Enterprise agentic AI assistant platform · Bengaluru</div>
+      <ul>
+        <li>Designing backend microservices powering the platform's agent ecosystem — skill execution, configuration, recommendation, and orchestration services.</li>
+        <li>Building core capabilities that let AI agents discover and invoke enterprise skills through <strong>MCP</strong> integrations.</li>
+        <li>Developing the agent <strong>Skill SDK (CLI)</strong> for rapidly building and deploying reusable AI skills; contributor to the Chatbot SDK (UI).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="rolehead">
+        <div class="role">SDE Intern <span class="at">@ RingCentral</span></div>
+        <div class="dates">Jan — Jul 2025</div>
+      </div>
+      <div class="where">Platform PBX team · Bengaluru</div>
+      <ul>
+        <li>Shipped React.js frontend features and fixed production issues in Java backend services.</li>
+        <li>Built an internal engineering dashboard from scratch — Spring Boot microservice with cron-scheduled Jira/Atlassian ingestion, data pipelines, and REST APIs feeding a React frontend.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="rolehead">
+        <div class="role">LLM Project Intern <span class="at">@ Samsung R&amp;D (PRISM)</span></div>
+        <div class="dates">Feb — Jul 2024</div>
+      </div>
+      <ul>
+        <li>LLM-based action-execution response reasoning — prompt design and evaluation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects" class="rv">
+    <h2><span class="jp">作品</span>Projects</h2>
+    <div class="grid">
+
+      <div class="card proj">
+        <h3>TypeFaster ⌨</h3>
+        <div class="sub">python · TUI · websockets</div>
+        <p>Terminal-first typing game — live multiplayer races, ghost replays, daily challenges, and a per-key typing coach. Published on PyPI &amp; Homebrew.</p>
+        <a class="plink" href="https://github.com/Anoshor/typefaster-cli" target="_blank" rel="noopener">github ↗</a>
+      </div>
+
+      <div class="card proj">
+        <h3>BMS Backend 🏢</h3>
+        <div class="sub">java · spring boot · stripe · aws</div>
+        <p>Microservices backend for a building-management product <strong>shipped to a US client</strong> — JWT auth, leases &amp; maintenance, Stripe payments (cards, ACH, webhooks), S3 + CloudFront.</p>
+        <a class="plink" href="https://github.com/Anoshor/BMS-backend" target="_blank" rel="noopener">github ↗</a>
+      </div>
+
+      <div class="card proj">
+        <h3>Scene Text Detection 📄</h3>
+        <div class="sub">deep learning · IEEE publication</div>
+        <p>Local-language scene-text detection research — built a custom dataset and improved prior accuracy by 10%. Published at an IEEE conference.</p>
+        <a class="plink" href="https://ieeexplore.ieee.org/abstract/document/10499106" target="_blank" rel="noopener">paper ↗</a>
+      </div>
+
+      <div class="card proj">
+        <h3>GeoGuide Bot 🤖</h3>
+        <div class="sub">opencv · ML · e-yantra (IIT-B)</div>
+        <p>Vision-guided robot for the E-Yantra Robotics Competition 2023-24 — ranked top 30 globally out of thousands of teams.</p>
+        <a class="plink" href="https://github.com/Anoshor/eyrc23_GG_1298" target="_blank" rel="noopener">github ↗</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills" class="rv">
+    <h2><span class="jp">技術</span>Skills</h2>
+    <div class="sgroup"><div class="slabel">Languages</div>
+      <div class="chips"><span class="chip">Java</span><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">C/C++</span><span class="chip">SQL</span></div>
+    </div>
+    <div class="sgroup"><div class="slabel">Backend &amp; Platform</div>
+      <div class="chips"><span class="chip">Spring Boot</span><span class="chip">Microservices</span><span class="chip">REST APIs</span><span class="chip">MCP</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">Jenkins</span><span class="chip">Git</span></div>
+    </div>
+    <div class="sgroup"><div class="slabel">AI / ML</div>
+      <div class="chips"><span class="chip">Agentic AI</span><span class="chip">LLMs</span><span class="chip">Transformers</span><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">NLP</span><span class="chip">OpenCV</span></div>
+    </div>
+    <div class="sgroup"><div class="slabel">Frontend</div>
+      <div class="chips"><span class="chip">React.js</span><span class="chip">Next.js</span></div>
+    </div>
+  </section>
+
+  <section class="contact rv" id="contact">
+    <h2><span class="jp">連絡</span>Contact</h2>
+    <p>Building agentic AI things, or just want to race me on TypeFaster? My inbox is open.</p>
+    <a class="pill primary" href="mailto:anoshorpaul@gmail.com">anoshorpaul@gmail.com</a>
+  </section>
+
+</div>
+
+<footer>
+  <span class="kana">またね 👋</span> · © 2026 Anoshor B. Paul · anoshor.com
+</footer>
+
+<script>
+/* ============ island 1: theme switcher ============ */
+(function(){
+  var root=document.documentElement, btns=document.querySelectorAll(".tbtn");
+  function mark(){var cur=root.getAttribute("data-theme");btns.forEach(function(b){b.classList.toggle("active",b.dataset.set===cur);});}
+  btns.forEach(function(b){b.addEventListener("click",function(){
+    root.setAttribute("data-theme",b.dataset.set);
+    try{localStorage.setItem("theme",b.dataset.set);}catch(e){}
+    mark(); window.dispatchEvent(new CustomEvent("themechange"));
+  });});
+  mark();
+})();
+
+/* ============ island 2: typing tagline ============ */
+(function(){
+  var lines=["building agentic AI platforms","designing backend microservices","shipping MCP integrations","typing faster than you ⌨"];
+  var el=document.getElementById("type"),li=0,ci=0,del=false;
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){el.textContent=lines[0];return;}
+  (function tick(){
+    var s=lines[li];
+    ci+=del?-1:1; el.textContent=s.slice(0,ci);
+    var wait=del?32:70;
+    if(!del&&ci===s.length){wait=1800;del=true;}
+    else if(del&&ci===0){del=false;li=(li+1)%lines.length;wait=350;}
+    setTimeout(tick,wait);
+  })();
+})();
+
+/* ============ island 3: scroll reveal ============ */
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.08});
+  document.querySelectorAll(".rv").forEach(function(el){io.observe(el);});
+})();
+
+/* ============ island 4: theme-aware particles ============ */
+(function(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var cv=document.getElementById("petals"),cx=cv.getContext("2d"),W,H,ps=[],raf;
+  var CFG={
+    tokyo:{n:40,mk:function(){return{x:Math.random()*W,y:Math.random()*H,vy:2+Math.random()*3,len:14+Math.random()*22,c:Math.random()<.5?"rgba(255,92,138,.35)":"rgba(92,225,230,.3)",kind:"rain"};}},
+    ghibli:{n:22,mk:function(){return{x:Math.random()*W,y:Math.random()*H,vx:.3+Math.random()*.5,vy:-.15-Math.random()*.3,r:1.6+Math.random()*2.4,c:"rgba(255,255,250,.9)",sw:Math.random()*6.28,kind:"seed"};}},
+    sakura:{n:28,mk:function(){return{x:Math.random()*W,y:Math.random()*H,vy:.5+Math.random()*.9,vx:.3+Math.random()*.6,r:3.5+Math.random()*4,rot:Math.random()*6.28,vr:.01+Math.random()*.03,c:"rgba(233,109,138,.55)",kind:"petal"};}},
+    manga:{n:26,mk:function(){return{x:Math.random()*W,y:Math.random()*H,vy:.25+Math.random()*.4,r:1.2+Math.random()*2.2,c:"rgba(17,17,17,.14)",kind:"dot"};}}
+  };
+  function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
+  function seed(){var t=document.documentElement.getAttribute("data-theme")||"tokyo";var c=CFG[t]||CFG.tokyo;ps=[];for(var i=0;i<c.n;i++)ps.push(c.mk());}
+  function step(){
+    cx.clearRect(0,0,W,H);
+    for(var i=0;i<ps.length;i++){var p=ps[i];
+      if(p.kind==="rain"){p.y+=p.vy;cx.strokeStyle=p.c;cx.lineWidth=1.4;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(p.x,p.y+p.len);cx.stroke();if(p.y>H){p.y=-p.len;p.x=Math.random()*W;}}
+      else if(p.kind==="seed"){p.sw+=.02;p.x+=p.vx;p.y+=p.vy+Math.sin(p.sw)*.2;cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.28);cx.fill();if(p.x>W+10||p.y<-10){p.x=-10;p.y=H*.3+Math.random()*H*.7;}}
+      else if(p.kind==="petal"){p.y+=p.vy;p.x+=p.vx+Math.sin(p.y*.01)*.5;p.rot+=p.vr;cx.save();cx.translate(p.x,p.y);cx.rotate(p.rot);cx.fillStyle=p.c;cx.beginPath();cx.ellipse(0,0,p.r,p.r*.6,0,0,6.28);cx.fill();cx.restore();if(p.y>H+12){p.y=-12;p.x=Math.random()*W;}}
+      else{p.y+=p.vy;cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.28);cx.fill();if(p.y>H+6){p.y=-6;p.x=Math.random()*W;}}
+    }
+    raf=requestAnimationFrame(step);
+  }
+  function boot(){size();seed();cancelAnimationFrame(raf);step();}
+  addEventListener("resize",function(){size();seed();});
+  addEventListener("themechange",function(){seed();});
+  document.addEventListener("visibilitychange",function(){document.hidden?cancelAnimationFrame(raf):step();});
+  ("requestIdleCallback" in window)?requestIdleCallback(boot):setTimeout(boot,120);
+})();
+</script>
+</body>
+</html>
