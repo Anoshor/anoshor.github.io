@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="tokyo">
+<html lang="en" data-theme="sakura">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -167,9 +167,9 @@ footer .kana{color:var(--accent)}
   <div class="navin">
     <a class="logo" href="#top"><span class="kana">あ</span>anoshor</a>
     <div class="themes" role="group" aria-label="Theme">
+      <button class="tbtn" data-set="sakura" title="Sakura Ink"     aria-label="Sakura Ink theme">🌸</button>
       <button class="tbtn" data-set="tokyo"  title="Tokyo Night"    aria-label="Tokyo Night theme">🌃</button>
       <button class="tbtn" data-set="ghibli" title="Ghibli Soft"    aria-label="Ghibli Soft theme">🌿</button>
-      <button class="tbtn" data-set="sakura" title="Sakura Ink"     aria-label="Sakura Ink theme">🌸</button>
       <button class="tbtn" data-set="manga"  title="Monochrome Manga" aria-label="Monochrome Manga theme">⚫</button>
     </div>
   </div>
@@ -350,7 +350,7 @@ footer .kana{color:var(--accent)}
     manga:{n:26,mk:function(){return{x:Math.random()*W,y:Math.random()*H,vy:.25+Math.random()*.4,r:1.2+Math.random()*2.2,c:"rgba(17,17,17,.14)",kind:"dot"};}}
   };
   function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
-  function seed(){var t=document.documentElement.getAttribute("data-theme")||"tokyo";var c=CFG[t]||CFG.tokyo;ps=[];for(var i=0;i<c.n;i++)ps.push(c.mk());}
+  function seed(){var t=document.documentElement.getAttribute("data-theme")||"sakura";var c=CFG[t]||CFG.sakura;ps=[];for(var i=0;i<c.n;i++)ps.push(c.mk());}
   function step(){
     cx.clearRect(0,0,W,H);
     for(var i=0;i<ps.length;i++){var p=ps[i];
