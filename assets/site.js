@@ -111,7 +111,7 @@
     };
 
     function petals(node) {
-      if (RM) return;
+      if (RM || wrap.classList.contains("three-on")) return;   // the 3D tree bursts its own
       var r = node.getBoundingClientRect(), w = wrap.getBoundingClientRect();
       for (var i = 0; i < 7; i++) (function (i) {
         var d = document.createElement("i");
@@ -175,6 +175,24 @@
       var target = nodes.filter(function (n) { return n.dataset.key === want; })[0];
       if (target) target.click();
     }
+  })();
+
+  /* ---------- 3D sakura (lazy island) ----------
+     Loads three.js only when the skills section is close. Any failure
+     (no WebGL, CDN down, old browser) leaves the SVG tree in place. */
+  (function () {
+    var wrap = $("#bonsai");
+    if (!wrap) return;
+    function go() {
+      import("/assets/sakura.js")
+        .then(function (m) { m.mount(wrap); })
+        .catch(function () { /* keep the 2D tree */ });
+    }
+    if (!("IntersectionObserver" in window)) { go(); return; }
+    var io = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { io.disconnect(); go(); }
+    }, { rootMargin: "400px 0px" });
+    io.observe(wrap);
   })();
 
   /* ---------- copy email ---------- */

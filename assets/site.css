@@ -202,6 +202,18 @@ h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-
 :root[data-theme="manga"] .node.on .nl{color:#fff}
 .node.off{opacity:.35}
 
+/* 3D sakura: the canvas replaces the svg only once it has drawn a frame */
+.bonsai canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab;opacity:0;transition:opacity .9s ease}
+.bonsai.three-on{max-width:880px}
+.bonsai.three-on canvas{opacity:1}
+.bonsai.three-on canvas.over{cursor:pointer}
+.bonsai.three-on canvas.grabbing{cursor:grabbing}
+.bonsai.three-on svg{display:none}
+.bonsai.three-on .nodes{pointer-events:none}
+.bonsai.three-on .node{pointer-events:auto;opacity:var(--vis,1);z-index:var(--z,1)}
+.bonsai.three-on .node.off{opacity:calc(var(--vis,1) * .4)}
+@media(max-width:540px){.bonsai.three-on{aspect-ratio:1/1}}
+
 .petal{position:absolute;pointer-events:none;border-radius:50% 0 50% 50%;background:var(--accent);opacity:.75}
 
 .detail{
