@@ -5,7 +5,7 @@
    The HTML .node buttons remain the source of truth for which
    branch is open; this file only draws and forwards clicks.
    ============================================================ */
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js";
+import * as THREE from "./vendor/three.module.min.js";   // three r170, vendored
 
 const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const V3 = THREE.Vector3;
@@ -174,6 +174,8 @@ export function mount(wrap) {
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.autoUpdate = false;     // static scene: rendered once below
+  renderer.shadowMap.needsUpdate = true;
   wrap.insertBefore(canvas, wrap.querySelector(".nodes"));
 
   const scene = new THREE.Scene();

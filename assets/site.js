@@ -191,7 +191,7 @@
     if (!("IntersectionObserver" in window)) { go(); return; }
     var io = new IntersectionObserver(function (es) {
       if (es[0].isIntersecting) { io.disconnect(); go(); }
-    }, { rootMargin: "400px 0px" });
+    }, { rootMargin: "900px 0px" });
     io.observe(wrap);
   })();
 
