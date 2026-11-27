@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sakura">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>yt-shorts-pipeline — personal YouTube Shorts uploader</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://anoshor.com/yt-shorts/">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  .app{max-width:720px;margin:0 auto;padding:48px 16px 80px;line-height:1.65}
+  .app h1{font-size:2rem;margin:0 0 6px}
+  .app h2{font-size:1.1rem;margin:28px 0 6px}
+  .yt{display:inline-flex;align-items:center;gap:8px;font-weight:600;margin:6px 0 18px}
+  .yt svg{width:34px;height:24px}
+  .links{display:flex;gap:18px;flex-wrap:wrap;margin:18px 0 28px;font-weight:600}
+  .app ol li{margin:4px 0}
+  footer.app-foot{max-width:720px;margin:0 auto;padding:0 16px 40px;opacity:.8;font-size:.9rem}
+</style>
+</head>
+<body>
+<main class="app">
+  <h1>yt-shorts-pipeline</h1>
+  <div class="yt">
+    <svg viewBox="0 0 34 24" aria-hidden="true"><rect width="34" height="24" rx="6" fill="#FF0000"/><path d="M13.5 7v10l9-5z" fill="#fff"/></svg>
+    Uses YouTube API Services
+  </div>
+  <p>A personal tool by Anoshor Paul that uploads short videos he creates to his own two YouTube channels
+  (an AI explainer channel and a stories channel). It is not a public service and has no other users.</p>
+
+  <nav class="links">
+    <a href="/privacy/">Privacy Policy</a>
+    <a href="/terms/">Terms of Service</a>
+    <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>
+    <a href="http://www.google.com/policies/privacy">Google Privacy Policy</a>
+  </nav>
+
+  <h2>How it works</h2>
+  <ol>
+    <li>A script writes an original short video script each day.</li>
+    <li>A GitHub Actions job renders the video (voice, images, captions).</li>
+    <li>The rendered video is sent to the owner on Telegram for review; he can cancel it.</li>
+    <li>At the scheduled time, the video is uploaded to the owner's own channel with the YouTube Data API
+      (<code>videos.insert</code>, scope <code>youtube.upload</code>), marked as altered/synthetic content and not made for kids.</li>
+  </ol>
+
+  <h2>Data</h2>
+  <p>Only the owner's OAuth token is stored (encrypted). No viewer or third-party data is collected.
+  Access can be revoked at <a href="https://security.google.com/settings/security/permissions">Google security settings</a>.</p>
+</main>
+<footer class="app-foot">Contact: <a href="mailto:anoshorpaul@gmail.com">anoshorpaul@gmail.com</a> · <a href="/">anoshor.com</a></footer>
+</body>
+</html>
